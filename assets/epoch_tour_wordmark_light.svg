@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 512" width="1500" height="512">
+  <title>ELELEM · Epoch Tour · Chile 2026</title>
+  <defs><clipPath id="disc"><circle cx="256" cy="256" r="178"/></clipPath></defs>
+  <g clip-path="url(#disc)">
+    <path d="M40,330 L120,250 L160,282 L222,184 L268,240 L304,212 L372,282 L410,248 L480,320 V480 H40Z" fill="#C8693A"/>
+    <path d="M196,226 L222,184 L246,213 L232,206 L222,220 L210,212Z M290,223 L304,212 L322,230 L308,226Z" fill="#F3E9DD"/>
+    <path d="M40,372 L130,316 L190,350 L262,296 L330,352 L392,320 L480,374 V480 H40Z" fill="#1E1C24"/>
+  </g>
+  <polygon points="256,98 263.1,118.3 284.5,118.7 267.4,131.7 273.6,152.3 256,140 238.4,152.3 244.6,131.7 227.5,118.7 248.9,118.3" fill="#D52B1E"/>
+  <path d="M391.0,95.1 A210,210 0 1 1 256,46" fill="none" stroke="#D52B1E" stroke-width="16" stroke-linecap="round"/>
+  <polygon points="292,46 254,24 254,68" fill="#D52B1E"/>
+  <circle cx="416.9" cy="391.0" r="13" fill="#FFFFFF" stroke="#D52B1E" stroke-width="7"/>
+  <circle cx="95.1" cy="391.0" r="13" fill="#FFFFFF" stroke="#D52B1E" stroke-width="7"/>
+  <g font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+    <text x="560" y="250" font-size="168" font-weight="800" fill="#1E1C24" letter-spacing="4">ELELEM</text>
+    <text x="566" y="330" font-size="54" font-weight="700" fill="#D52B1E" letter-spacing="14">EPOCH TOUR · CHILE</text>
+    <text x="566" y="398" font-size="40" font-weight="400" fill="#6B6470" letter-spacing="6">Santiago · 22–24 Oct 2026</text>
+  </g>
+</svg>

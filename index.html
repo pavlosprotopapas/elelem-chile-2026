@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ELELEM Chile 2026</title>
+<meta name="description" content="ELELEM · Epoch Tour Chile — a three-day hands-on workshop on LLMs, RAG, agents and multi-agent systems. Santiago, 22–24 October 2026.">
+<link rel="icon" href="assets/epoch_tour_mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1E1C24; --navy-2:#2B2833; --red:#D52B1E; --red-soft:#E08A57; --copper:#C8693A;
+  --bg:#FFFFFF; --bg-alt:#F7F1E8; --text:#1E1C24; --muted:#6B6470; --line:#E6DDD0; --link:#A84E22;
+  --card:#FFFFFF; --chip:#F3E9DD;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#151419; --bg-alt:#1C1A21; --text:#EFE9E1; --muted:#B3AAA0; --line:#34303A; --link:#F0A274;
+    --card:#221F27; --chip:#2E2A33;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#151419; --bg-alt:#1C1A21; --text:#EFE9E1; --muted:#B3AAA0; --line:#34303A; --link:#F0A274;
+  --card:#221F27; --chip:#2E2A33;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 Inter,'Helvetica Neue',Helvetica,Arial,sans-serif}
+a{color:var(--link)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:var(--navy);border-bottom:4px solid var(--red)}
+nav .wrap{display:flex;align-items:center;gap:20px;height:60px;overflow-x:auto}
+nav .brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:800;letter-spacing:.06em;white-space:nowrap}
+nav .brand img{width:34px;height:34px}
+nav .links{display:flex;gap:18px;margin-left:auto}
+nav .links a{color:#E6DED4;text-decoration:none;font-size:14px;font-weight:500;white-space:nowrap}
+nav .links a:hover{color:#fff}
+
+/* hero */
+.hero{background:radial-gradient(ellipse at 80% 30%,#3a2a26 0%,var(--navy) 55%,#141318 100%);color:#fff;position:relative;overflow:hidden}
+.hero .wrap > *{min-width:0}
+.hero .wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:center;padding-top:56px;padding-bottom:88px}
+.kicker{color:var(--red-soft);font-weight:700;letter-spacing:.2em;font-size:13px;text-transform:uppercase}
+.hero h1{font-size:clamp(34px,5.5vw,56px);line-height:1.08;margin:12px 0 16px;font-weight:800}
+.hero p.lead{font-size:18px;color:#D8CFC4;max-width:34em;margin:0 0 24px}
+.hero .facts{display:flex;flex-wrap:wrap;gap:10px}
+.hero .facts span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);padding:6px 12px;border-radius:999px;font-size:14px}
+.hero img.mark{width:100%;max-width:340px;justify-self:center}
+.hero svg.ridge{position:absolute;left:0;bottom:0;width:100%;height:70px}
+
+section{padding:56px 0}
+section.alt{background:var(--bg-alt)}
+h2{font-size:28px;margin:0 0 8px;font-weight:800}
+h2 + .sub{color:var(--muted);margin:0 0 28px}
+h3{margin:0 0 6px;font-size:18px}
+
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
+.card .day{color:var(--copper);font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+.card p{margin:6px 0 0;color:var(--muted);font-size:15px}
+ol.outcomes{padding-left:20px;margin:0}
+ol.outcomes li{margin:6px 0}
+
+/* schedule */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.tabs button{font:inherit;font-weight:600;font-size:14px;border:1px solid var(--line);background:var(--card);color:var(--text);padding:8px 14px;border-radius:999px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.day-panel h3{font-size:20px;margin-bottom:12px}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+td.time{white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--muted);width:120px}
+td .what{font-weight:600}
+td .desc{color:var(--muted);font-size:14px;margin-top:2px}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:6px;background:var(--chip);color:var(--text);margin-right:6px}
+.tag.lab{background:#FDE7E5;color:#9E1E14}
+.tag.talk{background:#E6F4EA;color:#1F6B37}
+.tag.break{background:transparent;color:var(--muted);padding-left:0}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .tag.lab{background:#4A1A17;color:#FFB4AC} :root:not([data-theme="light"]) .tag.talk{background:#163A24;color:#9FE0B4} }
+:root[data-theme="dark"] .tag.lab{background:#4A1A17;color:#FFB4AC}
+:root[data-theme="dark"] .tag.talk{background:#163A24;color:#9FE0B4}
+tr.break td{color:var(--muted);font-size:14px;padding:8px 10px}
+td.mat a{display:inline-block;margin:0 8px 4px 0;font-size:14px;white-space:nowrap}
+td.mat .soon{color:var(--muted);font-size:14px}
+
+.people{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.person .role{color:var(--copper);font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.person p{margin:4px 0 0;color:var(--muted);font-size:14px}
+
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;position:relative;padding:0 0 14px 44px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;display:grid;place-items:center;font-size:14px}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .steps li::before{background:var(--red)} }
+:root[data-theme="dark"] .steps li::before{background:var(--red)}
+
+details{border-bottom:1px solid var(--line);padding:12px 0}
+summary{cursor:pointer;font-weight:600}
+details p{color:var(--muted);margin:8px 0 0}
+
+footer{background:var(--navy);color:#D8CFC4;padding:28px 0;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+footer img{height:44px}
+
+@media (max-width:760px){
+  .hero .wrap{grid-template-columns:1fr;padding-top:36px}
+  .hero img.mark{max-width:180px;grid-row:1;justify-self:start}
+  .cols{grid-template-columns:1fr}
+  nav .links{gap:14px}
+  table thead{display:none}
+  table,tbody,tr,td{display:block;width:100%}
+  tr{border-bottom:1px solid var(--line);padding:10px 0}
+  td{border:0;padding:2px 0}
+  td.time{width:auto}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="assets/epoch_tour_mark_dark.svg" alt="">ELELEM CHILE</a>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#prework">Pre-work</a>
+      <a href="#team">Team</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="kicker">ELELEM · Epoch Tour · Chile</div>
+      <h1>From LLMs to Agentic Systems</h1>
+      <p class="lead">A three-day, hands-on workshop for practitioners: how language models work, retrieval-augmented generation, tool-using agents, multi-agent systems — and how to tell when they fail.</p>
+      <div class="facts">
+        <span>📅 Thu 22 – Sat 24 Oct 2026</span>
+        <span>📍 Santiago, Chile</span>
+        <span>🗣️ In English</span>
+        <span>💻 Lectures + labs</span>
+      </div>
+    </div>
+    <img class="mark" src="assets/epoch_tour_mark_dark.svg" alt="Epoch Tour logo: a loop arrow around the Andes under Chile's lone star">
+  </div>
+  <svg class="ridge" viewBox="0 0 1200 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 L100,22 L170,36 L260,8 L350,32 L440,18 L540,42 L630,24 L720,46 L810,14 L900,36 L1000,20 L1100,40 L1200,26 V70 H0Z" fill="var(--bg)"/></svg>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <h2>About the workshop</h2>
+    <p class="sub">Led by Prof. Pavlos Protopapas (Harvard University).</p>
+    <p>Large language models are easy to call and hard to build on. This workshop takes practitioners from <em>“I can prompt a model”</em> to <em>“I can design, build and judge an LLM system”</em>. It has one through-line: <strong>an LLM is not an agent.</strong> A model predicts the next token; a useful system wraps that model in retrieval, tools, memory and a control loop — and each layer adds capability, cost and new ways to fail.</p>
+    <p>Short lectures build the mental model. Labs in Google Colab, using the OpenAI Agents SDK, show the trade-offs that only appear in code. Two industry talks, from <strong>CMPC</strong> and <strong>NotCo</strong>, show how Chilean companies use these systems today.</p>
+
+    <div class="cols" style="margin-top:28px">
+      <div class="card"><div class="day">Day 1 · Thu 22</div><h3>LLMs → RAG</h3><p>What a language model is, from transformers to ChatGPT, and why prompting alone is not enough. Then retrieval-augmented generation, from naïve RAG to self-correcting variants.</p></div>
+      <div class="card"><div class="day">Day 2 · Fri 23</div><h3>Agents</h3><p>Reasoning models, the agent loop, tools and MCP; then context engineering, harnesses and skills. Labs: the Cheese Quiz agent and a Travel Planner.</p></div>
+      <div class="card"><div class="day">Day 3 · Sat 24</div><h3>Landscape, multi-agent, limits</h3><p>Which model and which surface for which job, when more than one agent helps, and the limitations, risks and evaluation of LLM systems.</p></div>
+    </div>
+
+    <h3 style="margin-top:36px">By the end you will be able to</h3>
+    <ol class="outcomes">
+      <li>Explain what an LLM does — and what it cannot do on its own.</li>
+      <li>Build a RAG pipeline and choose among retrieval improvements: hybrid search, re-ranking, Self-RAG, Corrective RAG.</li>
+      <li>Build tool-using agents with the OpenAI Agents SDK, and explain the agent loop, tools and MCP.</li>
+      <li>Compose agents into orchestrator/worker systems, and recognise when a single agent is enough.</li>
+      <li>Identify hallucination, sycophancy, bias and prompt-injection risks, and design an evaluation for your own system.</li>
+    </ol>
+
+    <h3 style="margin-top:28px">Who it is for</h3>
+    <p>Engineers, ML engineers, data scientists and technical leads who are comfortable in Python and have used an LLM API. No prior experience with agent frameworks is needed.</p>
+  </div>
+</section>
+
+<section id="schedule" class="alt">
+  <div class="wrap">
+    <h2>Schedule</h2>
+    <p class="sub">Slides and notebooks are posted here before each session. All times are Santiago time.</p>
+
+    <div class="tabs" role="tablist">
+      <button role="tab" aria-selected="true" data-day="d1">Day 1 · Thu 22</button>
+      <button role="tab" aria-selected="false" data-day="d2">Day 2 · Fri 23</button>
+      <button role="tab" aria-selected="false" data-day="d3">Day 3 · Sat 24</button>
+    </div>
+
+    <div class="day-panel" id="d1">
+      <h3>Day 1 — LLMs → RAG</h3>
+      <table>
+        <thead><tr><th>Time</th><th>Session</th><th>Materials</th></tr></thead>
+        <tbody>
+          <tr><td class="time">9:00–10:30</td><td><div class="what"><span class="tag">Lecture</span>LLMs I — What a language model is</div><div class="desc">Tokens and next-token prediction, pre-training, prompts as conditioning, sampling and temperature, limits: knowledge cut-off, hallucination, context window.</div></td><td class="mat"><span class="soon">Slides soon</span></td></tr>
+          <tr class="break"><td class="time">10:30–10:50</td><td colspan="2">Coffee break</td></tr>
+          <tr><td class="time">10:50–12:30</td><td><div class="what"><span class="tag">Lecture</span>LLMs II — From transformers to ChatGPT</div><div class="desc">Attention and the transformer block, scaling, instruction tuning and RLHF, the chat interface — and why prompting alone is not enough.</div></td><td class="mat"><span class="soon">Slides soon</span></td></tr>
+          <tr class="break"><td class="time">12:30–13:30</td><td colspan="2">Lunch</td></tr>
+          <tr><td class="time">13:30–15:10</td><td><div class="what"><span class="tag lab">Lab</span>ChatGPT lab</div><div class="desc">Working with a chat model through the API.</div></td><td class="mat"><span class="soon">Notebook soon</span></td></tr>
+          <tr class="break"><td class="time">15:10–15:30</td><td colspan="2">Coffee break</td></tr>
+          <tr><td class="time">15:30–17:00</td><td><div class="what"><span class="tag">Lecture</span>Retrieval-Augmented Generation</div><div class="desc">Naïve RAG, better retrieval (hybrid search, re-ranking), Self-RAG and Corrective RAG. Optional: fine-tuning with LoRA/QLoRA.</div></td><td class="mat"><a href="slides/D1-4_RAG.pdf">Slides (PDF)</a></td></tr>
+          <tr><td class="time">17:00–17:30</td><td><div class="what"><span class="tag talk">Industry talk</span>Ignacio Becker — CMPC</div></td><td class="mat"></td></tr>
+          <tr><td class="time">17:30–18:00</td><td><div class="what"><span class="tag lab">Lab</span>RAG lab</div><div class="desc">Build and query a small RAG pipeline.</div></td><td class="mat"><a href="https://github.com/dlops-io/llm-rag">GitHub</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="day-panel" id="d2" hidden>
+      <h3>Day 2 — Agents</h3>
+      <table>
+        <thead><tr><th>Time</th><th>Session</th><th>Materials</th></tr></thead>
+        <tbody>
+          <tr><td class="time">9:00–10:30</td><td><div class="what"><span class="tag">Lecture</span>Agents I</div><div class="desc">Reasoning models, what makes something an agent, how the agent loop works, tools and MCP.</div></td><td class="mat"><a href="slides/D2-1_Agents_I.pdf">Slides (PDF)</a></td></tr>
+          <tr class="break"><td class="time">10:30–10:50</td><td colspan="2">Coffee break</td></tr>
+          <tr><td class="time">10:50–12:30</td><td><div class="what"><span class="tag lab">Lab</span>Agents I lab — The Cheese Quiz</div><div class="desc">Build a quiz-writing agent with the OpenAI Agents SDK.</div></td><td class="mat"><a href="https://colab.research.google.com/drive/14UKW-Z7kFPuCwVqyUFcLxeA1KF70fwfm">Open in Colab</a></td></tr>
+          <tr class="break"><td class="time">12:30–13:30</td><td colspan="2">Lunch</td></tr>
+          <tr><td class="time">13:30–15:10</td><td><div class="what"><span class="tag">Lecture</span>Agents II</div><div class="desc">Context engineering, the agent harness, skills, single- vs multi-agent systems, and evaluating agents.</div></td><td class="mat"><a href="slides/D2-3_Agents_II.pdf">Slides (PDF)</a></td></tr>
+          <tr class="break"><td class="time">15:10–15:30</td><td colspan="2">Coffee break</td></tr>
+          <tr><td class="time">15:30–17:00</td><td><div class="what"><span class="tag lab">Lab</span>Agents II lab — Travel Planner</div><div class="desc">A planning agent with several tools.</div></td><td class="mat"><a href="https://colab.research.google.com/drive/1I_jJEHJsVkGxNoSC1c4wEoVF2QL6vCVY">Open in Colab</a></td></tr>
+          <tr><td class="time">17:00–17:30</td><td><div class="what"><span class="tag talk">Industry talk</span>Karim Pichara — NotCo</div></td><td class="mat"></td></tr>
+          <tr><td class="time">17:30–18:00</td><td><div class="what">Wrap-up, Q&amp;A and preview of Day 3</div></td><td class="mat"></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="day-panel" id="d3" hidden>
+      <h3>Day 3 — Landscape, multi-agent systems and limitations</h3>
+      <table>
+        <thead><tr><th>Time</th><th>Session</th><th>Materials</th></tr></thead>
+        <tbody>
+          <tr><td class="time">9:00–10:15</td><td><div class="what"><span class="tag">Lecture</span>The AI landscape 2026 &amp; multi-agent systems</div><div class="desc">Five ways to use AI today, open vs proprietary models, cost levers — then multi-agent patterns and when multi-agent is overkill.</div></td><td class="mat"><a href="slides/D3-1_Landscape_and_MultiAgent.pdf">Slides (PDF)</a></td></tr>
+          <tr class="break"><td class="time">10:15–10:35</td><td colspan="2">Coffee break</td></tr>
+          <tr><td class="time">10:35–11:20</td><td><div class="what"><span class="tag">Lecture</span>Limitations, risks and evaluation</div><div class="desc">Hallucination and sycophancy, bias, privacy, jailbreaks and prompt injection — and how to build an evaluation that tells you something.</div></td><td class="mat"><a href="slides/D3-2_Limitations_Risks_Evaluation.pdf">Slides (PDF)</a></td></tr>
+          <tr><td class="time">11:20–13:00</td><td><div class="what"><span class="tag lab">Lab</span>Multi-agent lab — The Cheese Quiz Guild</div><div class="desc">Rebuild the orchestrator of a team of specialist agents, read the traces, then add a cost guard and a regression test.</div></td><td class="mat"><a href="notebooks/day3_multiagent_lab_cheese_quiz_guild.ipynb" download>Notebook (.ipynb)</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="prework">
+  <div class="wrap">
+    <h2>Before you arrive</h2>
+    <p class="sub">About 15 minutes. Please do this before Thursday morning.</p>
+    <ol class="steps">
+      <li><strong>Bring a laptop</strong> with a recent Chrome or Firefox. Everything runs in Google Colab; nothing needs to be installed.</li>
+      <li><strong>Sign in to a Google account</strong> so you can open and save Colab notebooks.</li>
+      <li><strong>Get an OpenAI API key</strong> at <a href="https://platform.openai.com/api-keys">platform.openai.com</a> with about USD 10 of credit. The labs use small models; a typical participant spends a few dollars.</li>
+      <li><strong>Run the readiness check.</strong> Download <a href="notebooks/day0_check_ready.ipynb" download>day0_check_ready.ipynb</a>, open it in Colab (File → Upload notebook), add your key under 🔑 Secrets as <code>OPENAI_API_KEY</code>, and run all cells. The last line should print <strong>✅ ready</strong>.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="team" class="alt">
+  <div class="wrap">
+    <h2>Team</h2>
+    <p class="sub">Instructors, teaching staff and guest speakers.</p>
+    <div class="people">
+      <div class="card person"><div class="role">Instructor</div><h3>Pavlos Protopapas</h3><p>Harvard University</p></div>
+      <!-- TODO: surnames and one-line bios for Guillermo and Valeria -->
+      <div class="card person"><div class="role">Teaching staff</div><h3>Guillermo</h3><p>Leads the Day 3 multi-agent lab.</p></div>
+      <div class="card person"><div class="role">Teaching staff</div><h3>Valeria</h3><p>Teaches evaluating agents (Day 3) and supports the labs.</p></div>
+      <div class="card person"><div class="role">Guest speaker · Day 1</div><h3>Ignacio Becker</h3><p>CMPC</p></div>
+      <div class="card person"><div class="role">Guest speaker · Day 2</div><h3>Karim Pichara</h3><p>NotCo</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2>FAQ</h2>
+    <details><summary>Do I need experience with agent frameworks?</summary><p>No. You should be comfortable in Python and have called an LLM API at least once. We start agents from first principles.</p></details>
+    <details><summary>Is the workshop in English or Spanish?</summary><p>Lectures and materials are in English.</p></details>
+    <details><summary>Who pays for the API calls?</summary><p>You use your own OpenAI API key. The labs are designed to cost a few dollars in total.</p></details>
+    <details><summary>Can I keep the materials?</summary><p>Yes. Slides and notebooks stay on this page after the workshop. Please do not redistribute them without permission.</p></details>
+    <details><summary>Something does not work in my notebook.</summary><p>Run the readiness check first. If it does not print ✅ ready, bring the output to any member of the teaching staff before the first lab.</p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="assets/epoch_tour_wordmark_dark.svg" alt="ELELEM · Epoch Tour · Chile">
+    <div>Santiago · 22–24 October 2026</div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.tabs button').forEach(x => x.setAttribute('aria-selected', x === b));
+  document.querySelectorAll('.day-panel').forEach(p => p.hidden = p.id !== b.dataset.day);
+}));
+// open the current workshop day by default
+const today = new Date().toISOString().slice(0, 10);
+const d = {'2026-10-23': 'd2', '2026-10-24': 'd3'}[today];
+if (d) document.querySelector(`.tabs button[data-day="${d}"]`).click();
+</script>
+</body>
+</html>

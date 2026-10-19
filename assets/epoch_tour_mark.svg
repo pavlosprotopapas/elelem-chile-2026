@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <title>Epoch Tour — ELELEM Chile 2026</title>
+  <defs><clipPath id="disc"><circle cx="256" cy="256" r="178"/></clipPath></defs>
+  <g clip-path="url(#disc)">
+    <path d="M40,330 L120,250 L160,282 L222,184 L268,240 L304,212 L372,282 L410,248 L480,320 V480 H40Z" fill="#C8693A"/>
+    <path d="M196,226 L222,184 L246,213 L232,206 L222,220 L210,212Z M290,223 L304,212 L322,230 L308,226Z" fill="#F3E9DD"/>
+    <path d="M40,372 L130,316 L190,350 L262,296 L330,352 L392,320 L480,374 V480 H40Z" fill="#1E1C24"/>
+  </g>
+  <polygon points="256,98 263.1,118.3 284.5,118.7 267.4,131.7 273.6,152.3 256,140 238.4,152.3 244.6,131.7 227.5,118.7 248.9,118.3" fill="#D52B1E"/>
+  <path d="M391.0,95.1 A210,210 0 1 1 256,46" fill="none" stroke="#D52B1E" stroke-width="16" stroke-linecap="round"/>
+  <polygon points="292,46 254,24 254,68" fill="#D52B1E"/>
+  <circle cx="416.9" cy="391.0" r="13" fill="#FFFFFF" stroke="#D52B1E" stroke-width="7"/>
+  <circle cx="95.1" cy="391.0" r="13" fill="#FFFFFF" stroke="#D52B1E" stroke-width="7"/>
+</svg>
