@@ -8,7 +8,7 @@ The pre-work readiness check is not in the schedule table, so it always stays. U
 import os, re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-PUBLIC = [  # slide PDFs participants can see; add a deck here when it is settled
+PUBLIC = [  # files in slides/ (PDF or PPTX, without extension) participants can see; add one when it is settled
     'D1-1a_What_Is_a_Language_Model', 'D1-1b_Neural_Language_Models', 'D1-1c_Attention_and_Transformers',
     'D1-1d_BERT_and_GPT', 'D1-1e_From_GPT_to_ChatGPT',
 ]
@@ -25,9 +25,9 @@ def materials(m):  # one Materials cell: keep public slides and notebooks, repla
     notebooks = re.findall(r'notebooks/([^"/]+)\.ipynb"', cell)
     if any(n not in PUBLIC_NOTEBOOKS for n in notebooks):  # a lab that is not public yet: hide all its links
         return '<td class="mat"><span class="soon">Notebook soon</span></td>'
-    hidden = [n for n in re.findall(r'<a href="slides/([^"]+)\.pdf">', cell) if n not in PUBLIC]
+    hidden = [n for n in re.findall(r'<a href="slides/([^"]+)\.(?:pdf|pptx)">', cell) if n not in PUBLIC]
     if not hidden: return cell
-    for n in hidden: cell = re.sub(rf'<a href="slides/{re.escape(n)}\.pdf">.*?</a>', '', cell)
+    for n in hidden: cell = re.sub(rf'<a href="slides/{re.escape(n)}\.(?:pdf|pptx)">.*?</a>', '', cell)
     if not re.search(r'<a |<span', cell[len('<td class="mat">'):]):
         cell = cell.replace('<td class="mat">', '<td class="mat"><span class="soon">Slides soon</span>', 1)
     return cell
@@ -36,7 +36,7 @@ def materials(m):  # one Materials cell: keep public slides and notebooks, repla
 s = re.sub(r'<td class="mat">.*?</td>', materials, s, flags=re.S)
 assert '<!--DEV-->' not in s
 open(os.path.join(HERE, 'index.html'), 'w').write(s)
-shown = sorted(set(re.findall(r'href="slides/([^"]+)\.pdf"', s)))
+shown = sorted(set(re.findall(r'href="slides/([^"]+)\.(?:pdf|pptx)"', s)))
 nbs = sorted(set(re.findall(r'<td class="mat">[^<]*<a href="[^"]*notebooks/([^"/]+)\.ipynb"', s)))
 print(f'index.html: {len(shown)} slide PDFs shown — ' + ', '.join(shown))
 print(f'index.html: {len(nbs)} lab notebooks shown' + (' — ' + ', '.join(nbs) if nbs else ''))
