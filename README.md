@@ -7,6 +7,6 @@ Live: https://pavlosprotopapas.github.io/elelem-chile-2026/
 Static site. Two pages:
 
 - `dev.html` — the team's page, with everything. **Edit this one.** (Unlisted and marked noindex, but public like the whole repo.)
-- `index.html` — the participant page, generated: `python3 publish.py` copies `dev.html` and shows only the slide PDFs listed in `PUBLIC` at the top of `publish.py`; every other slide link becomes "Slides soon".
+- `index.html` — the participant page, generated: `python3 publish.py` copies `dev.html` and shows only the slide PDFs listed in `PUBLIC` and the lab notebooks listed in `PUBLIC_NOTEBOOKS` at the top of `publish.py`; the rest become "Slides soon" / "Notebook soon". The pre-work readiness check always stays.
 
 Then commit both pages and push to `main`. Slides go in `slides/`, notebooks in `notebooks/`.
