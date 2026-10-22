@@ -10,9 +10,10 @@ import os, re
 HERE = os.path.dirname(os.path.abspath(__file__))
 PUBLIC = [  # files in slides/ (PDF or PPTX, without extension) participants can see; add one when it is settled
     'D1-1a_What_Is_a_Language_Model', 'D1-1b_Neural_Language_Models', 'D1-1c_Attention_and_Transformers',
-    'D1-1d_BERT_and_GPT', 'D1-1e_From_GPT_to_ChatGPT',
+    'D1-1d_BERT_and_GPT', 'D1-1e_From_GPT_to_ChatGPT', 'D1-4_RAG',
 ]
 PUBLIC_NOTEBOOKS = [  # notebooks in notebooks/ (without .ipynb) participants can open from the schedule
+    'day1_chatgpt_lab', 'day1_rag_lab',
 ]
 
 s = open(os.path.join(HERE, 'dev.html')).read()
