@@ -12,9 +12,10 @@ PUBLIC = [  # files in slides/ (PDF or PPTX, without extension) participants can
     'D1-1a_What_Is_a_Language_Model', 'D1-1b_Neural_Language_Models', 'D1-1c_Attention_and_Transformers',
     'D1-1d_BERT_and_GPT', 'D1-1e_From_GPT_to_ChatGPT', 'D1-4_RAG',
     'D2-0_Capstone_Brief', 'D2-0b_Capstone_Design_Template', 'D2-1_Agents_I',
+    'D2-3_Agents_II', 'D2-5_Capstone_Example_Pisco_Sour',
 ]
 PUBLIC_NOTEBOOKS = [  # notebooks in notebooks/ (without .ipynb) participants can open from the schedule
-    'day1_chatgpt_lab', 'day1_rag_lab', 'day2_agents1_lab_cheese_quiz',
+    'day1_chatgpt_lab', 'day1_rag_lab', 'day2_agents1_lab_cheese_quiz', 'day2_agents2_lab_travel_planner',
 ]
 
 s = open(os.path.join(HERE, 'dev.html')).read()
